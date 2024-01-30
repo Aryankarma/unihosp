@@ -1,0 +1,34 @@
+<!-- <h1 class="login-head" style="text-align: left">
+	Enter OTP
+</h1>
+<form class="mainform" (submit)="handleOTPCheck()">
+	<div class="maincont">
+		<div></div>
+		<label class="span0" for="ot-01">
+			Enter OTP
+		</label>
+		<i class="fas fa-key"></i>
+		<input uniHovered class="mailnum" type="text" autocomplete="none" name="otp" id="ot-01" placeholder="U-091323" />
+	</div>
+	<p class="left">
+		Enter the otp sent to you on you email address
+	</p>
+	<button type="submit">VERIFY</button>
+</form> -->
+
+<h1 class="login-head">
+  Enter OTP
+</h1>
+<form class="mainform" [formGroup]="formGroup">
+  <div class="maincont">
+    <div></div>
+    <label class="span0" for="email">
+      Email address
+    </label>
+    <i class="far fa-user"></i>
+    <input uniHovered class="mailnum" type="email" autocomplete="username, email" formControlName="email" name="email"
+      id="email" placeholder="U-091323" />
+  </div>
+  <p class="left">Enter the otp sent to you on you email address</p>
+  <button type="submit">Verify</button>
+</form>

@@ -1,0 +1,109 @@
+<div class="content" *ngIf="paitentProfile$|async as patient">
+    <!-- <div class="content"> -->
+    <div>
+        <div class="userimage" *ngIf="userService$ | async as user">
+            <div class="av_img" *ngIf="user.avatarUrl" style="background-image: url({{user.avatarUrl}});">
+            </div>
+            <div class="av_img" *ngIf="!user.avatarUrl" style="background-image: url('/assets/profile.png');">
+            </div>
+        </div>
+        <h1 style="font-weight: 600">Nearby Hospitals, {{ patient.fName }}</h1>
+        <p id="p" class="fontSize">
+            This dashboard is wholeheartedly designed to manage almost everything about
+            you health.
+        </p>    
+    </div>  
+
+    <div id="map" #map style="position: relative"></div>
+
+    <h1 class="lessmargin" style="margin-bottom: 5rem">Hospitals you've previously visited...</h1>
+
+    <!-- <div class="h-container"> -->
+        <div class="hosInfo">
+            <img src="/assets/bombay-hospital-indore.jpg" alt="" />
+            <div class="hosDetail">
+                <h2>Bombay Hospital Indore</h2>
+                <!-- <br /> -->
+                <p>
+                    Bombay Hospital in Indore is premier healthcare institute that
+                    exemplifies excellence, trustand compassion. The hospitaoffers
+                    unparalleled healthcare servicewith top talents and cutting-edge
+                    technology for the quickesrecovery of patients. Despitbeing
+                    well-equipped, it is easilaccessible to people from alwalks of life.
+                </p>
+            </div>
+        </div>
+        <p class="visited">
+            <span style="text-decoration: none">&#8226;</span> Visited in reference of
+            <span>diabetes</span> on <span>8 feb 2023</span>
+        </p>
+    <!-- </div> -->
+
+
+    <!-- <div class="h-container"> -->
+        <div class="hosInfo">
+            <img src="/assets/choithram-hospital-indore.jpg" alt="" />
+            <div class="hosDetail">
+                <h2>Choithram Hospital Indore</h2>
+                <!-- <br /> -->
+                <p>
+                    Choithram Hospital provides accessible, high-quality healthcare with a
+                    team of skilled professionals delivering compassionate care and
+                    effective services. It is a trusted institution and a center of
+                    excellence in Indore.
+                </p>
+            </div>
+        </div>
+        <p class="visited">
+            <span style="text-decoration: none">&#8226;</span> Visited in reference of
+            <span>typhoid</span> on <span>15 dec 2022</span>
+        </p>
+        <div class="showmore">
+            <a onclick="myFunction()" class="showmore1" target="_blank" rel="noopener noreferrer">show more...</a>
+        </div>
+    <!-- </div> -->
+
+
+
+    <div class="clicked">
+        <div class="hosInfo">
+            <img src="/assets/arihant-hospital-indore.jpg" alt="" />
+            <div class="hosDetail">
+                <h2>Arihant Hospital Indore</h2>
+                <!-- <br /> -->
+                <p>
+                    Arihant hospital has been internationally acknowledged for being one
+                    of the centers of health care excellence in India. The hospital is
+                    committed at providing efficient care with a humane touch. Being one
+                    of the most advanced hospitals in state, the hospital is definitely a
+                    popular and trusted health care center in Indore.
+                </p>
+            </div>
+        </div>
+        <p class="visited">
+            <span style="text-decoration: none">&#8226;</span> Visited in reference of
+            <span>typhoid</span> on <span>8 dec 2022</span>
+        </p>
+
+        <!-- <div class="h-container"> -->
+            <div class="hosInfo">
+                <img src="/assets/greater-kailash-hospital.jpg" alt="" />
+                <div class="hosDetail">
+                    <h2>G. Kailash Hospital Indore</h2>
+                    <br />
+                    <p>
+                        A hospital excelling for four decades now. Greater Kailash Hospital is
+                        committed to make quality care affordable for everyone residing in and
+                        around Indore. A multispeciality hospital employing the best team of
+                        doctors and supporting staff who consider patient care to be their
+                        utmost priority.
+                    </p>
+                </div>
+            </div>
+            <p class="visited">
+                <span style="text-decoration: none">&#8226;</span> Visited in reference of
+                <span>typhoid</span> on <span>15 dec 2022</span>
+            </p>
+        <!-- </div> -->
+    </div>
+</div>

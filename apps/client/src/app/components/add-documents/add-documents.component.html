@@ -1,0 +1,32 @@
+<div class="popup" *ngIf="open">
+  <div class="tuhcls" (click)="close()"></div>
+  <div class="popupcont">
+    <div class="close">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+    <div class="ctn">
+      <h1 id="pophead">Upload new document.</h1>
+      <form>
+        <div class="maincont">
+          <div></div>
+          <label class="span0" for="email" style="display: none;">
+            File Name
+          </label>
+          <i class="fa-solid fa-file"></i>
+          <input hovered class="mailnum" type="email" autocomplete="username, email" formControlName="email"
+            name="email" id="email" placeholder="Enter File name" />
+        </div>
+
+        <div class="maincont">
+          <i class="fa-solid fa-file"></i>
+          <label class="span0">
+            <span>Choose File:</span>
+            <input #file style="display: none;" accept="mimetype/jpeg" type="file" name="file" id="file" />
+          </label>
+        </div>
+
+        <button class="subbtn" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

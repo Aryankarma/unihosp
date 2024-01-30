@@ -1,0 +1,148 @@
+<div class="content" *ngIf="paitentProfile$ | async as patient">
+  <!-- <div class="content"> -->
+  <uni-loading *ngIf="!patient || loading"></uni-loading>
+  <div>
+    <div class="userimage editable">
+      <label style="width: 100%; height: 100%;" *ngIf="userProfile$ | async as user">
+        <div title="Upload Profile Photo" class="av_img" *ngIf="user.avatarUrl"
+          style="background-image: url({{user.avatarUrl}});">
+        </div>
+        <div class="av_img" *ngIf="!user.avatarUrl" style="background-image: url('/assets/profile.png');">
+        </div>
+        <input accept=".jpg, .png, .jpeg, .heic" style="display: none;" type="file" #file
+          (change)="handlePhotoUpload()">
+      </label>
+    </div>
+    <h1>Your Profile, {{ patient.fName }} </h1>
+    <p id="p" class="fontSize">
+      This dashboard is wholeheartedly designed to manage almost everything about
+      you health.
+    </p>
+  </div>
+  <div class="profile-data">
+    <div class="prof">
+      <div class="det-con">
+        <div class="det">
+          <h2>Full Name: </h2>
+          <span> {{ patient.fName + " " + patient.lName}} </span>
+        </div>
+      </div>
+      <div class="det-con">
+        <div class="det">
+          <h2>Uni Id: </h2>
+          <span>{{ patient.handle }}</span>
+        </div>
+      </div>
+      <div class="det-con">
+        <div class="det">
+          <h2>Date of Birth: </h2>
+          <span>{{patient.dateOfBirth | date: 'mediumDate'}}</span>
+        </div>
+      </div>
+      <div class="det-con">
+        <div class="det">
+          <h2>Blood Group: </h2>
+          <span>{{patient.bloodGroup}}</span>
+        </div>
+      </div>
+      <div class="det-con" *ngIf="userProfile$ | async as user">
+        <div class="det">
+          <h2>Email: </h2>
+          <span>{{user.email}}</span>
+        </div>
+      </div>
+      <div class="det-con" *ngIf="userProfile$ | async as user">
+        <div class="det">
+          <h2>Mobile: </h2>
+          <span>{{user.contact}}</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="ato" *ngIf="patient.allowedDoctors.length > 0 && patient.allowedDoctors.length>0">
+      <h2>Profile Allowed to:</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let doctors of patient.allowedDoctors">
+            <td>{{doctors.fName}}</td>
+            <td>{{doctors.handle}}</td>
+            <td><button>Remove</button></td>
+          </tr>
+          <tr *ngFor="let hospital of patient.allowedHospitals">
+            <td>{{hospital.name}}</td>
+            <td>{{hospital.location}}</td>
+            <td><button>Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- <div class="mainsec">
+    <div class="firstsec">
+        <label for="name">Name</label><br />
+        <input placeholder="Enter name" type="text" name="name" id="name" />
+    </div>
+    <div class="secondsec">
+        <label for="id">Patient ID</label><br />
+        <input placeholder="Enter patient ID" type="text" name="patientid" id="patientid" />
+    </div>
+</div>
+<div>
+    Uni ID: @kjwkjs
+</div>
+<div class="mainsec">
+    <div class="fullsec">
+        <label for="Bio">Bio</label><br />
+        <input placeholder="Enter Bio" type="textarea" name="Bio" id="Bio" />
+    </div>
+</div> -->
+
+<!-- <div class="mainsec">
+    <div class="firstsec">
+        <label for="Contact">Contact</label><br />
+        <input accept="number" placeholder="Enter Contact" type="text" name="Contact" id="Contact" />
+    </div>
+    <div class="secondsec">
+        <label for="EmailID">Email ID</label><br />
+        <input placeholder="Enter Email ID" type="text" name="mailid" id="mailid" />
+    </div>
+</div>
+<div class="mainsec">
+    <div class="firstsec">
+        <label style="width: 100%; margin-bottom: 1rem; float: left" for="bldgrp">Blood Group</label><br />
+        <label class="container">A
+            <input type="radio" checked="checked" name="bloodGroup" />
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">B
+            <input type="radio" name="bloodGroup" />
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">AB
+            <input type="radio" name="bloodGroup" />
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">O
+            <input type="radio" name="bloodGroup" />
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div class="secondsec">
+        <label style="width: 100%; margin-bottom: 1rem; float: left" for="bldgrp">Blood Group</label><br />
+        <label class="container">Male
+            <input type="radio" checked="checked" name="radio1" />
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Female
+            <input type="radio" name="radio1" />
+            <span class="checkmark"></span>
+        </label>
+    </div>
+</div> -->

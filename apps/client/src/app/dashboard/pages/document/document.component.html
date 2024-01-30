@@ -1,0 +1,30 @@
+<div class="content" *ngIf="paitentProfile$|async as patient">
+  <!-- <div class="content"> -->
+  <div class="tp-usr-dtls">
+    <h1>Past Medical Record, {{patient.fName}}</h1>
+    <p id="p" class="fontSize">
+      This dashboard is wholeheartedly designed to manage almost everything about
+      you health.
+    </p>
+  </div>
+
+  <div class="prof">
+    <div class="recsss" *ngFor="let rec of recs">
+      <details class="det-con">
+        <summary class="det">
+          <h2 class="rec-tle">{{ rec.title }}</h2>
+          <span class="dte">{{ rec.createdAt | date: 'mediumDate'}}</span>
+        </summary>
+        <div class="dtls recs">
+          <p>{{rec.description | slice: 0:maxLetter}}<span *ngIf="rec.description.length > maxLetter">...</span></p>
+          <div class="s-dtl"><a routerLink="/dashboard/records">See Detials</a></div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="ed-btn">
+    <button><i class="fa-sharp fa-solid fa-plus"></i></button>
+  </div>
+</div>
+<uni-loading *ngIf="(paitentProfile$|async) === null"></uni-loading>

@@ -1,0 +1,149 @@
+#map {
+  height: 600px;
+  width: 600px;
+  margin: 5rem auto;
+  background-color: #04525667;
+}
+.hosInfo {
+  margin: 1.5rem 8rem;
+  display: flex;
+}
+.hosInfo img {
+  height: 12rem;
+  width: 12rem;
+  margin: 0 auto;
+  /* margin-right: 2rem; */
+  border: 3px solid #2f776d;
+  border-radius: 1.5rem;
+}
+.hosInfo h2 { 
+  font-size: 2.2rem;
+  margin: 0 auto;
+  text-align: left;
+  padding: 0;
+}
+.hosInfo p {
+  font-size: 1rem;
+  text-align: left; 
+  margin: 0;
+}
+.hosDetail {
+  margin: auto;
+  margin-left: 2rem;
+}
+.hosDetail span {
+  text-decoration: underline;
+}
+.visited span {
+  text-decoration: underline;
+}
+.visited {
+  text-align: left;
+  margin-left: 8rem;
+  margin-bottom: 5rem;
+}
+.showmore {
+  margin-left: 8rem;
+  padding-bottom: 3rem;
+  text-align: left;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+}
+.showmore a {
+  text-decoration: none;
+  color: #2f2f2fa9;
+  font-weight: 700;
+  transition: 250ms;
+}
+.showmore a:hover {
+  color: #333;
+  transition: 250ms;
+}
+.clicked {
+  display: none;
+  transition: 500ms;
+}
+
+
+@media screen and (width < 750px) {
+  .content {
+    & > div:nth-child(2) {
+      gap: 24px 0px;
+      margin-top: 2rem;
+      width: 100%;
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media screen and (width < 535px){
+  .lessmargin{
+    margin-bottom: 1rem !important;
+  }
+  h1{
+    font-size: 1.3rem;
+  }
+  .content {
+    width: 100vw;
+    & > div:nth-child(2) {
+      grid-auto-rows:auto;
+    }
+  }
+  #map{
+    margin: 2.5rem auto;
+  }
+  .hosInfo{
+    margin: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2{
+      font-size:1.2rem;
+    }
+  }
+  .hosDetail{
+    margin: 0;
+    h2{
+      text-align: center;
+      margin-top:1rem;
+    }p{
+      text-align:center;
+    } 
+  }
+  .visited{
+    margin-left:0;
+    font-size:0.8rem;
+  }
+}
+
+// different size media queries for map (it needs fix size to render images)
+
+@media screen and (width < 535px) {
+  #map {
+    width: 480px;
+    height: 480px;
+  }
+}
+
+@media screen and (width < 480px){
+  #map {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+@media screen and (width < 430px){
+  #map {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media screen and (width < 400px){
+  #map {
+    width: 360px;
+    height: 360px;
+  }
+}

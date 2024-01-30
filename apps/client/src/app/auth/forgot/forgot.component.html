@@ -1,0 +1,18 @@
+<h1 class="login-head">
+  Forgot password.
+</h1>
+<form class="mainform" [formGroup]="formGroup" (submit)="handleForgetMailSent($event)">
+  <div class="maincont">
+    <div></div>
+    <label class="span0" for="email">
+      Email address
+    </label>
+    <i class="far fa-user"></i>
+    <input uniHovered class="mailnum" type="email" autocomplete="username, email" formControlName="email" name="email"
+      id="email" placeholder="example@xyz.com" />
+  </div>
+  @if(emailSent) {
+  <p class="left">Check your Email for further process...</p>
+  }
+  <button type="submit">NEXT</button>
+</form>

@@ -1,0 +1,64 @@
+.login-head {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  font-family: "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #045256;
+}
+
+button[type="submit"] {
+  font-weight: 600;
+  font-family: "Poppins";
+}
+
+.mainform button {
+  font-size: 1rem;
+  color: white;
+  border: 0;
+  background: linear-gradient(90deg, #045256 10%, #045256 60%, #0b1516c2 100%);
+  padding: 0.6rem 2rem;
+  width: 100%;
+  border-radius: 1.5rem;
+  margin: 24px 0 1rem 0;
+}
+
+.mainform button:hover {
+  opacity: 0.9;
+  transition: 350ms;
+}
+
+.mainform button:active {
+  transform: scale(0.95);
+}
+
+label {
+  font-size: 13px;
+  color: #424242;
+  font-weight: 500;
+}
+
+.left {
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+  font-family: "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
+}
+.left:hover {
+  opacity: 0.8;
+  transition: 200ms;
+}
+.right {
+  float: right;
+  color: #045256;
+  text-decoration: none;
+  font-family: "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
+}
+.right:hover {
+  opacity: 0.8;
+  transition: 200ms;
+}
+.span3 {
+  margin-left: 5px;
+}

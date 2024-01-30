@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Righteous&family=ZCOOL+XiaoWei&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+
+// Topbar Component Start
+@import url("https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,300;0,500;0,600;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+// Topbar Component End
+
+:root {
+  --primary-color: #ecf0f3;
+  --seconday-color: rgba(126, 206, 126, 0.5);
+  --third-color: #c4ebc2;
+  --border-radius-size: 5px;
+  --border-color: rgb(37 204 37 / 60%);
+  --topbar-background: rgba(126, 206, 126, 0.5);
+  --logo-color-1: rgb(44, 148, 212);
+  --logo-color-2: #da8049;
+  --top-nav-bar-border: #dc9999;
+  --sidebar-background-color: rgb(235, 235, 235);
+  --sidebar-font-color: #333;
+  --sidebar-font2-color: #333;
+  --sidebar-icon-color: #333;
+  --sidebar-icon2-color: #333;
+  --logo-color: rgb(63, 142, 192);
+  --primary-font-family: Poppins;
+  --box-shadow-color: #25cc2562;
+  --shadow-color: #ecf0f3;
+  --shadow-color-secondary: rgba(126, 206, 126, 0.15);
+  --logo-font-family: "Poppins", sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary-color: #ecf0f3;
+    --seconday-color: rgba(126, 206, 126, 0.5);
+    --third-color: #c4ebc2;
+    --border-radius-size: 5px;
+    --border-color: rgb(37 204 37 / 60%);
+    --topbar-background: rgba(126, 206, 126, 0.5);
+    --logo-color-1: rgb(44, 148, 212);
+    --logo-color-2: #da8049;
+    --top-nav-bar-border: #dc9999;
+    --sidebar-background-color: rgb(235, 235, 235);
+    --sidebar-font-color: #333;
+    --sidebar-font2-color: #333;
+    --sidebar-icon-color: #333;
+    --sidebar-icon2-color: #333;
+    --logo-color: rgb(63, 142, 192);
+    --primary-font-family: Poppins;
+    --box-shadow-color: #25cc2562;
+    --shadow-color: #ecf0f3;
+    --shadow-color-secondary: rgba(126, 206, 126, 0.15);
+    --logo-font-family: "Poppins", sans-serif;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--primary-font-family);
+}
+
+body {
+  background-color: var(--primary-color);
+}
+
+button[type="submit"] {
+  cursor: pointer;
+}
+
+i {
+  font-weight: bold;
+}
+
+ion-icon {
+  --ionicon-stroke-width: 42px;
+}

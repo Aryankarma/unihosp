@@ -1,0 +1,44 @@
+<div class="stick">
+  <div class="sidepanelextended" [ngClass]="{'hmb': !open}" #sidebarExtented>
+    <div class="hamlogo" (click)="open ? closeSidebar() : openSidebar($event)">
+      <i class="icon fa-solid fa-close"></i>
+    </div>
+    <ul> 
+      <li *ngFor="let route of routes;let i = index;" class="box1">
+        <a *ngIf="route.routerLink" [ngClass]="{'hovered': route.hovered }" routerLinkActive='active'
+          [routerLink]="route.routerLink" (mouseover)="mouseOver(i)" (mouseleave)="mouseOverOut(i)">
+          <div class="circle1">
+            <h3>{{route.title}}</h3>
+          </div>
+        </a> 
+        <button *ngIf="route.routerLink === undefined" [ngClass]="{'hovered': route.hovered}" (mouseover)="mouseOver(i)"
+          (click)="logout()" (mouseleave)="mouseOverOut(i)">
+          <div class="circle1">
+            <h3>{{route.title}}</h3>
+          </div>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="sidepannel">
+    <div class="hamlogo" (click)="open ? closeSidebar() : openSidebar($event)">
+      <i class="icon fa-solid fa-bars"></i>
+    </div>
+    <ul>
+      <li class="box" *ngFor="let route of routes; let i = index;">
+        <a *ngIf="route.routerLink !== undefined" routerLinkActive='active' class="linkNoDec"
+          [ngClass]="{'hovered': route.hovered}" [routerLink]="route.routerLink" (mouseover)="mouseOver(i)"
+          (mouseleave)="mouseOverOut(i)">
+          <div class="circle"><i [class]="['icon', 'fa-solid', route.icon]"></i></div>
+        </a>
+        <button *ngIf="route
+        .routerLink === undefined" (click)="logout()" class="linkNoDec" [ngClass]="{'hovered': route.hovered}"
+          (mouseover)="mouseOver(i)" (mouseleave)="mouseOverOut(i)">
+          <div class="circle"><i [class]="['icon', 'fa-solid', route.icon]"></i></div>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+<div *ngIf="hideHider" [@hideHider]="stateName" class="hhdr" #hhdr (click)="closeSidebar()"></div>

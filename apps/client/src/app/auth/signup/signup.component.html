@@ -1,0 +1,59 @@
+<h1 class="login-head">Register yourself.</h1>
+<form [formGroup]="signupForm" (submit)="handleRegistration($event)" class="mainform">
+  <div class="fieldContainer">
+    <div class="maincont">
+      <div></div>
+      <label class="span0" for="email">
+        Email address
+      </label>
+      <i class="far fa-user"></i>
+      <input uniHovered uniCustomEmailValidator class="mailnum" type="email" autocomplete="username, email"
+        formControlName="email" name="email" id="email" placeholder="example@xyz.com" />
+    </div>
+    <div *ngIf="trySubmit && email?.invalid">
+      <span>
+        {{ email?.errors!['required'] ? "Email is required" : "" }}
+        {{ email?.errors!['invalidEmail'] }}
+      </span>
+    </div>
+  </div>
+
+  <div class="maincont">
+    <div></div>
+    <label class="span0" for="mob">
+      Contact number
+    </label>
+    <ion-icon name="call-outline"></ion-icon>
+    <input uniHovered class="mailnum" type="text" autocomplete="mobile" formControlName="contact" name="number" id="mob"
+      placeholder="+91-1254875645" />
+  </div>
+
+  <div class="maincont" *ngFor="let field of passInputFields; let i = index">
+    <div></div>
+    <label class="span0" for="pas-{{i}}">
+      {{field.title}}
+    </label>
+    <!-- <i class="fas fa-key"></i> -->
+    <!-- <ion-icon name="key-outline"></ion-icon> -->
+    <ion-icon name="lock-closed"></ion-icon>
+    <input uniHovered [type]="field.fieldType" checked formControlName="{{field.title|lowercase}}"
+      autocomplete="new-password" id="pas-{{i}}" placeholder="238#7br83@2r5!4" />
+    <span class="span3" (click)="hide(i)">
+      <i [class]="field.classList" aria-hidden="true"></i>
+    </span>
+  </div>
+
+  <div class="btn-container">
+    <label class="switch btn-color-mode-switch">
+      <input uniHovered type="checkbox" formControlName="userType" id="color_mode" (change)="userTypeChange($event)" />
+      <label for="color_mode" data-on="Doctor" data-off="Individual" class="btn-color-mode-switch-inner"></label>
+    </label>
+  </div>
+  <button type="submit" (click)="trySubmit = true" [disabled]="loading">Register</button>
+
+</form>
+<div style="text-align: center;">
+  <a routerLink="/auth/login">Already have an account?</a>
+</div>
+
+<uni-loading *ngIf="loading"></uni-loading>

@@ -1,0 +1,76 @@
+<div class="ctr-prof">
+  <div class="glass">
+    <div class="ap-lgo">
+      <a href="/" tabindex="-1" class="logo0">Uni<span>Hosp</span></a>
+    </div>
+    <h2>
+      Create Your Patient Profile
+    </h2>
+    <form [formGroup]="createProfileForm" (submit)="handleFormSubmission($event)">
+
+      <div class="maincont">
+        <div></div>
+        <label class="span0" for="f-name">
+          First Name
+        </label>
+        <i class="far fa-user"></i>
+        <input hovered type="text" autofocus autocomplete="firstname" formControlName="firstname" name="email"
+          id="f-name" placeholder="Name" />
+      </div>
+
+      <div class="maincont">
+        <div></div>
+        <label class="span0" for="l-name">
+          Last Name
+        </label>
+        <i class="far fa-user"></i>
+        <input hovered type="text" autocomplete="lastname" formControlName="lastname" name="email" id="l-name"
+          placeholder="Surname" />
+      </div>
+
+      <div class="maincont s2">
+        <div></div>
+        <label class="span0" for="hndle">
+          UniID
+        </label>
+        <i class="far fa-user"></i>
+        <input hovered uniHandleValidator type="text" autocomplete="username" formControlName="handle" name="email"
+          id="hndle" placeholder="Uni Id (Optional)" />
+        <div id="sfx">
+          <span>{{predefinedSuffix}}</span>
+        </div>
+      </div>
+      <div *ngIf="trySubmit && handle?.invalid">
+        <span>
+          {{ handle?.errors }}
+        </span>
+      </div>
+
+      <div class="maincont">
+        <div></div>
+        <label class="span0" for="dOb">
+          Date Of Birth
+        </label>
+        <i class="far fa-user"></i>
+        <input hovered type="date" autocomplete="lastname" [max]="maxDate" formControlName="dateOfBirth"
+          name="date-of-birth" id="dOb" placeholder="Surname" />
+      </div>
+
+      <div class="maincont">
+        <div></div>
+        <label class="span0" for="bgrp">
+          Blood Group
+        </label>
+        <i class="far fa-user"></i>
+        <select hovered formControlName="bloodGroup" name="email" id="bgrp" (focus)="onFocus(4)" (blur)="onBlur(4)">
+          <option value="">Select Blood Type</option>
+          <option *ngFor="let type of bloodTypes" value="{{type}}">{{type}}</option>
+        </select>
+      </div>
+      <button class="ctr">Create Profile</button>
+    </form>
+  </div>
+  <div class="design design1"></div>
+  <div class="design design2"></div>
+</div>
+<uni-loading *ngIf="loading"></uni-loading>

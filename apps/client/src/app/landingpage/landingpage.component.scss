@@ -1,0 +1,251 @@
+.navright {
+  float: right;
+  position: relative;
+}
+
+.navbar a {
+  font-family: "Oxanium", cursive;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  text-decoration: none;
+  width: 50%;
+  padding: 0.7rem;
+  opacity: 0.8;
+  position: relative;
+}
+
+.homebutton {
+  font-weight: 800 !important;
+  background: linear-gradient(45deg, #045256 0%, #0452567e 50%, #0b1516 100%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.nav-link::before {
+  transition: 350ms;
+  height: 3px;
+  content: "";
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.3);
+  /* background-color: rgba(0, 0, 0, 0.308); */
+}
+
+.nav-link-ltr::before {
+  width: 0%;
+  bottom: 0.7rem;
+}
+
+.nav-link-ltr:hover::before {
+  width: 85%;
+}
+
+.maincontent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.content {
+  width: 85vw;
+  height: 80vh;
+  margin-top: 4rem;
+}
+
+.rightcontent {
+  float: left;
+  width: 55%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  vertical-align: center;
+}
+
+.leftcontent {
+  float: right;
+  width: 45%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  vertical-align: center;
+}
+
+.leftcontent img {
+  width: 100%;
+  filter: brightness(90%);
+}
+
+.rightcontent h1 {
+  font-family: "Oxanium", cursive;
+  text-align: center;
+  font-size: 8vw;
+  font-weight: 700;
+  background: linear-gradient(45deg, #045256 0%, #0452568f 50%, #0b1516 100%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-color: rgba(255, 255, 255, 0);
+  margin-bottom: 0;
+  position: relative;
+  margin-top: 0;
+  padding: 0;
+}
+
+.rightcontent h3 {
+  font-size: 2vw;
+  font-weight: lighter;
+  color: rgb(245, 245, 245);
+  font-family: "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+.rightcontent h6 {
+  margin: 0.5rem 0;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 1.3vw;
+  text-align: center;
+  font-weight: 300;
+  font-family: system-ui, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+
+.signlogbtn {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  cursor: pointer;
+
+  button {
+    font-size: 1.4vw;
+    padding: 0.5em 2.25em;
+    border-radius: 0.4rem;
+
+    &:hover {
+      transition: 350ms;
+      background-color: #045256;
+      color: white;
+      box-shadow: 0 0 20px #04525672;
+    }
+  }
+}
+
+.loginbtn {
+  color: #045256;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: 0.1rem solid #045256;
+}
+
+.signupbtn {
+  color: white;
+  border: 0;
+  background: #045256;
+  margin-left: 1.5em;
+  cursor: pointer;
+}
+
+.wtnContent {
+  height: fit-content;
+  background-color: rgb(235, 235, 235);
+  padding: 4.2rem 4.5rem;
+  font-size: 1.5rem;
+  font-family: "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
+  color: #333;
+}
+
+.wtnContent span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heartbeat {
+  font-size: 12rem;
+  color: #045256;
+  transition: 800ms;
+}
+
+.heartbeathover {
+  transition: 4500ms;
+  /* color:rgb(199, 0, 0); */
+  /* color: #e3242b;  */
+  color: #a91b0d;
+  padding: 0;
+}
+
+hr {
+  background-color: #045256;
+  border: 0;
+  height: 1.2vh;
+  opacity: 1;
+  margin: 0;
+}
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 2rem;
+  margin-bottom: -7px;
+  /*Fix for safari gap*/
+  min-height: 3rem;
+  max-height: 150px;
+}
+
+.waves1 {
+  position: relative;
+  width: 100%;
+  height: 2rem;
+  margin-bottom: -7px;
+  /*Fix for safari gap*/
+  min-height: 3rem;
+  max-height: 150px;
+}
+
+.parallax>use {
+  animation: move-forever 50s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.parallax>use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+
+.parallax>use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.parallax>use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+
+.parallax>use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}

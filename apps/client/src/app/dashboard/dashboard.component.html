@@ -1,0 +1,7 @@
+<div class="dashboard-container" [@routerAnimation]="prepareRoute(outlet)">
+  <uni-topbar [searchBar]="true"></uni-topbar>
+  <uni-sde></uni-sde>
+  <div class="ctn">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
+</div>

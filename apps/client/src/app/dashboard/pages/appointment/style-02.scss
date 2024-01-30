@@ -1,0 +1,91 @@
+
+input[type="date"] {
+    padding: 0.8rem 0.5rem 0.8rem 0.8rem;
+    margin-bottom: 0.8rem;
+    border: 0;
+    border-radius: 1rem;
+    margin-top: 0.3rem;
+    font-size: 1.2rem;
+  }
+  input[type="time"] {
+    padding: 0.8rem 2.5rem 0.8rem 2.5rem;
+    margin-bottom: 0.8rem;
+    border: 0;
+    border-radius: 1rem;
+    margin-top: 0.3rem;
+    font-size: 1.2rem;
+  }
+  
+  input[type="email"] {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.8rem 6rem 0.8rem 0.8rem;
+    margin-bottom: 0.8rem;
+    border: 0;
+    border-radius: 1rem;
+    margin-top: 0.3rem;
+    font-size: 1.2rem;
+  }
+  
+  input[type="text"]:focus {
+    outline: 0;
+    border: 0;
+  }
+  input[type="textarea"]:focus {
+    outline: 0;
+    border: 0;
+  }
+  input[type="textarea"] {
+    padding: 1.8rem 15rem 1.8rem 0.8rem;
+    margin-bottom: 0.8rem;
+    border: 0;
+    border-radius: 1rem;
+    margin-top: 0.3rem;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  input[type="file"] {
+    font-size: 1rem;
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 0.5rem 0 0.5rem 0.8rem;
+    margin-bottom: 0.8rem;
+    border: 0;
+    border-radius: 1rem;
+    margin-top: 0.3rem;
+  }
+  .subbtn {
+    font-size: 1.3rem;
+    color: #f2f2f2;
+    border: 0;
+    background-color: #285b54f3 !important;
+    background: 0;
+    /* box-shadow: 0px 0px 25px #3b887e; */
+    box-shadow: 0px 0px 25px #00000093;
+    outline: 2px solid #3b887e;
+    padding: 0.6rem 2rem;
+    width: 100%;
+    font-weight: 100;
+    border-radius: 1.5rem;
+    letter-spacing: 6px;
+    margin-left: 0;
+    margin-top: 1rem;
+    transition: 250ms;
+  }
+  .subbtn:hover {
+    background-color: #2f776d;
+    background: 0;
+    /* box-shadow: 0px 0px 25px #00000093; */
+    transition: 250ms;
+    box-shadow: 0px 0px 25px #3b887e;
+    outline: 0;
+  }
+  .askApp{
+    display: none;
+  }
+  .topmargin{
+    margin-top: 1rem;
+  }
+  
+  

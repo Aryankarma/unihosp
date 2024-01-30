@@ -1,0 +1,123 @@
+.popup {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background: var(--primary-color);
+
+  .tuhcls {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.popupcont {
+  margin: 0 auto;
+  margin-top: 40px;
+  width: clamp(600px, 60%, 1000px);
+  aspect-ratio: 16 / 9;
+  border-radius: 1rem;
+  // box-shadow: 10px 10px 15px #093637a3, -10px -10px 15px #093637a3;
+  position: relative;
+  // background: linear-gradient(
+  //   45deg,
+  //   #c4ebc2 0%,
+  //   #aecfa4 15%,
+  //   #6bbd99 40%,
+  //   #3b887e 90%
+  // );
+  background: linear-gradient(90deg, #90a6cf97, #7998d2ad, #8fb3c7b6);
+  backdrop-filter: blur(2px);
+  border: 1px solid blue;
+  box-shadow: 0 2px 15px 1px var(--box-shadow-color);
+
+  .ctn {
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    background: linear-gradient(90deg, #90a6cf97, #7998d2ad, #8fb3c7b6);
+    backdrop-filter: blur(2px);
+    border: 1px solid blue;
+    border-radius: 1rem;
+    box-shadow: 0 2px 15px 1px rgba(0, 0, 255, 0.32);
+  }
+}
+
+#pophead {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: 250ms;
+  margin-top: 0.5rem;
+  margin-left: 0.7rem;
+}
+
+.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 15;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 50%;
+  width: 24px;
+  aspect-ratio: 1;
+  background-color: #285b54f3;
+  outline: 2px solid #3b887e;
+  box-shadow: 0px 0px 25px #3b887e;
+  color: #f2f2f2;
+  transition: 250ms;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.close:hover {
+  background-color: #2f776d;
+  box-shadow: 0px 0px 25px #00000093;
+  transition: 250ms;
+  outline: 0;
+}
+
+form h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 0 10px rgba(0, 0, 0, 0.2);
+  transition: 250ms;
+  margin-top: 0.5rem;
+  margin-left: 0.7rem !important;
+  margin: 0;
+}
+
+.subbtn {
+  font-size: 1.3rem;
+  color: #f2f2f2;
+  border: 0;
+  background-color: #285b54f3 !important;
+  background: 0;
+  box-shadow: 0px 0px 25px #3b887e;
+  outline: 2px solid #3b887e;
+  padding: 0.6rem 2rem;
+  width: 100%;
+  font-weight: 100;
+  border-radius: 1.5rem;
+  letter-spacing: 6px;
+  margin-left: 0;
+  margin-top: 1rem;
+}
+
+.subbtn:hover {
+  background-color: #2f776d;
+  background: 0;
+  box-shadow: 0px 0px 25px #00000093;
+  transition: 250ms;
+  outline: 0;
+}

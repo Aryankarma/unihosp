@@ -1,0 +1,54 @@
+<div class="navbar">
+  <div class="navleft">
+    <a href="/" class="logo0">Uni<span>Hosp</span></a>
+  </div>
+
+  <div *ngIf="searchBar" class="searchBar">
+    <uni-searchbar></uni-searchbar>
+  </div>
+
+  <div class="navright">
+    <div class="darkcontainer">
+      <a class="ddark0" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" routerLink="/dashboard"
+        rel="noopener noreferrer">
+        <i class="sociallogo fa-solid fa-house"></i> <span>Home</span>
+      </a>
+    </div>
+    <div class="darkcontainer">
+      <a class="ddark0" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active"
+        routerLink="/dashboard/profile">
+        <i class="sociallogo fa-solid fa-user"></i><span>Profile</span>
+      </a>
+    </div>
+    <div class="darkcontainer">
+      <a class="ddark1" (click)="open ? closeSidebar() : openSidebar($event)" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">
+        <i class="sociallogo fa-solid fa-bars"></i>
+      </a>
+    </div>
+    <div>
+
+    </div>
+  </div>
+</div>
+
+<div class="sidepanelextended" [ngClass]="{'hmb': !open}" #sidebarExtented>
+  <div class="hamlogo" (click)="open ? closeSidebar() : openSidebar($event)">
+    <i class="icon fa-solid fa-close"></i>
+  </div>
+  <ul> 
+    <li *ngFor="let route of routes;let i = index;" class="box1">
+      <a *ngIf="route.routerLink" [ngClass]="{'hovered': route.hovered }" routerLinkActive='active'
+        [routerLink]="route.routerLink" (mouseover)="mouseOver(i)" (mouseleave)="mouseOverOut(i)">
+        <div class="circle1">
+          <h3>{{route.title}}</h3>
+        </div>
+      </a> 
+      <button *ngIf="route.routerLink === undefined" [ngClass]="{'hovered': route.hovered}" (mouseover)="mouseOver(i)"
+        (click)="logout()" (mouseleave)="mouseOverOut(i)">
+        <div class="circle1">
+          <h3>{{route.title}}</h3>
+        </div>
+      </button>
+    </li>
+  </ul>
+</div>

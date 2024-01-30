@@ -1,0 +1,21 @@
+FROM node:latest AS UniClient
+
+WORKDIR /usr/src/client
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npx prisma generate
+
+RUN npx nx build client
+
+ENV PORT=4200
+
+EXPOSE ${PORT}
+
+CMD npx nx run client:serve-static --host 0.0.0.0 --port $PORT
+
+

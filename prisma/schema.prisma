@@ -1,0 +1,232 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL_ROOT")
+}
+
+model User {
+  id                String              @id @default(cuid())
+  email             String              @unique
+  password          String
+  name              String?
+  contact           String?
+  avatarUrl         String?
+  country           String?
+  role              Role                @default(Patient)
+  patient           Patient?
+  doctor            Doctor?
+  refreshTokens     RefreshTokens[]
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime?
+  preferences       Preferences?
+  verified          Boolean             @default(false)
+  History           History?
+  Avatars           Avatars?
+  ChatRoom          ChatRoom[]
+  Notification      Notification[]
+  hospitals         Hospital[]
+  UserHospitalAdmin UserHospitalAdmin[]
+  userHospitalOwner UserHospitalOwner[]
+}
+
+model Hospital {
+  id                     String              @id @default(cuid())
+  name                   String
+  handle                 String              @unique
+  location               String?
+  doctor                 Doctor[]
+  allowedPatientProfiles Patient[]
+  admins                 User[]
+  Appointments           Appointments[]
+  createdAt              DateTime            @default(now())
+  updatedAt              DateTime?
+  coordinates            Coordinates?
+  UserHospitalAdmin      UserHospitalAdmin[]
+  userHospitalOwner      UserHospitalOwner?
+}
+
+model UserHospitalAdmin {
+  userId     String
+  hospitalId String
+
+  user     User     @relation(fields: [userId], references: [id])
+  hospital Hospital @relation(fields: [hospitalId], references: [id])
+
+  @@id([userId, hospitalId])
+}
+
+model UserHospitalOwner {
+  id String @id @default(cuid())
+
+  userId     String
+  hospitalId String   @unique
+  user       User     @relation(fields: [userId], references: [id])
+  hospital   Hospital @relation(fields: [hospitalId], references: [id])
+}
+
+model RefreshTokens {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  authToken Bytes
+  expireIn  DateTime
+  createdAt DateTime @default(now())
+}
+
+model Coordinates {
+  id         String   @id @default(cuid())
+  longitude  Float
+  latitude   Float
+  hospital   Hospital @relation(fields: [hospitalId], references: [id])
+  hospitalId String   @unique
+}
+
+model Patient {
+  id                  String         @id @default(uuid())
+  handle              String         @unique
+  fName               String
+  lName               String
+  dateOfBirth         DateTime?
+  bloodGroup          String
+  Appointments        Appointments[]
+  notification        Notification[]
+  owner               User           @relation(fields: [userId], references: [id])
+  allowedHospitals    Hospital[]
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime?
+  userId              String         @unique
+  notificationChannel String         @default(cuid())
+  allowedDoctors      Doctor[]
+}
+
+model Doctor {
+  id                     String         @id @default(cuid())
+  fName                  String
+  lName                  String
+  hospital               Hospital       @relation(fields: [hospitalId], references: [id])
+  handle                 String         @unique
+  Appointments           Appointments[]
+  notification           Notification[]
+  hospitalId             String
+  allowedPatientProfiles Patient[]
+  owner                  User           @relation(fields: [userId], references: [id])
+  createdAt              DateTime       @default(now())
+  updatedAt              DateTime?
+  notificationChannel    String         @default(cuid())
+  userId                 String         @unique
+}
+
+model History {
+  id          String      @id @default(cuid())
+  title       String
+  description Bytes
+  user        User        @relation(fields: [userId], references: [id])
+  userId      String      @unique
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime?
+  Documents   Documents[]
+}
+
+model Documents {
+  id        String    @id @default(cuid())
+  name      String
+  type      String
+  buffer    Bytes
+  createdAt DateTime  @default(now())
+  updatedAt DateTime?
+  history   History   @relation(fields: [historyId], references: [id])
+  historyId String
+}
+
+model Avatars {
+  model     String    @id @default(cuid())
+  name      String
+  type      String?
+  createAt  DateTime  @default(now())
+  updatedAt DateTime?
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String    @unique
+  data      Bytes
+}
+
+model Appointments {
+  id              String    @id @default(cuid())
+  appointmentDate DateTime
+  patient         Patient   @relation(fields: [patientId], references: [id])
+  patientId       String
+  doctor          Doctor    @relation(fields: [doctorId], references: [id])
+  doctorId        String
+  hospital        Hospital  @relation(fields: [hospitalId], references: [id])
+  hospitalId      String
+  location        String
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime?
+}
+
+model Preferences {
+  id                  String    @id @default(cuid())
+  owner               User      @relation(fields: [userId], references: [id])
+  userId              String    @unique
+  notificationAllowed Boolean   @default(false)
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime?
+}
+
+model Notification {
+  id          String    @id @default(cuid())
+  title       String
+  description String
+  createAt    DateTime  @default(now())
+  user        User      @relation(fields: [userId], references: [id])
+  redirectUrl String?
+  checked     Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime?
+  patient     Patient?  @relation(fields: [patientId], references: [id])
+  patientId   String?
+  doctor      Doctor?   @relation(fields: [doctorId], references: [id])
+  doctorId    String?
+  userId      String
+}
+
+model VerificationMailRequest {
+  id       String   @id
+  email    String   @unique
+  contact  String   @unique
+  code     Int
+  expireAt DateTime
+
+  @@index([email])
+}
+
+enum Role {
+  Patient
+  Doctor
+  Admin
+  SuperAdmin
+}
+
+model Logs {
+  id          String   @id @default(cuid())
+  description String
+  createdAt   DateTime @default(now())
+}
+
+model Message {
+  id         String    @id @default(cuid())
+  value      String
+  createAt   DateTime  @default(now())
+  ChatRoom   ChatRoom? @relation(fields: [chatRoomId], references: [id])
+  chatRoomId String?
+}
+
+model ChatRoom {
+  id        String    @id @default(cuid())
+  messages  Message[]
+  createdAt DateTime  @default(now())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+}

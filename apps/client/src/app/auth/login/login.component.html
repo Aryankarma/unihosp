@@ -1,0 +1,31 @@
+<h1 class="login-head">Login</h1>
+<uni-loading *ngIf="loading"></uni-loading>
+<form class="mainform" [formGroup]="loginForm" (submit)="login($event)">
+  <div class="fieldContainer">
+    <div class="maincont">
+      <div></div>
+      <label class="span0" for="email">
+        Email address
+      </label>
+      <i class="far fa-user"></i>
+      <input uniHovered class="mailnum" type="email" autocomplete="username, email" formControlName="email" name="email"
+        id="email" placeholder="example@xyz.com" />
+    </div>
+  </div>
+
+  <div class="maincont">
+    <div></div>
+    <label class="span0" for="pas-1">
+      Password
+    </label>
+    <i class="fas fa-key"></i>
+    <input uniHovered [type]="fieldType" formControlName="password" autocomplete="password" id="pas-1"
+      placeholder="238#7br83@2r5!4" />
+    <span class="span3" (click)="hide()">
+      <i [class]="classList" aria-hidden="true"></i>
+    </span>
+  </div>
+  <button [disabled]="loading" type="submit">LOGIN</button>
+  <a class="left" routerLink="/auth/forgot-password">Forgot password?</a>
+  <a class="right" routerLink="/auth/signup">Register</a>
+</form>

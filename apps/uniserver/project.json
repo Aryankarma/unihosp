@@ -1,0 +1,53 @@
+{
+  "name": "uniserver",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/uniserver/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/uniserver",
+        "main": "apps/uniserver/src/main.ts",
+        "tsConfig": "apps/uniserver/tsconfig.app.json",
+        "assets": ["apps/uniserver/src/assets"],
+        "webpackConfig": "apps/uniserver/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "uniserver:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "uniserver:build:development"
+        },
+        "production": {
+          "buildTarget": "uniserver:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/uniserver/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,90 @@
+<div class="content" *ngIf="paitentProfile$|async as patient">
+  <div>
+    <div class="userimage">
+      <img src="/assets/profile.png" alt="" />
+    </div>
+
+
+    <h1>Set Appointments, {{patient.fName}}</h1>
+    <p id="p" class="fontSize">
+      This dashboard is wholeheartedly designed to manage almost everything
+      about you health.
+    </p>
+  </div>
+  <div class="a-cont">
+    <div class="searchCont">
+      <input type="text" name="search" id="search" placeholder="Search..." />
+      <button>Search <i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+    <h1 class="hd1">Nearby doctors</h1>
+
+    <div class="hosInfo">
+      <img src="/assets/dr neelima deshmukh.jpg" alt="" />
+      <div class="hosDetail">
+        <h2>Dr. Neelima Deshmukh</h2>
+        <br />
+        <h3>Specialist - Mental health</h3>
+        <h3>Distance - 4 km</h3>
+        <div id="btn" class="addmore">
+          <i class="fa-sharp fa-solid fa-plus"></i>
+        </div>
+      </div>
+    </div>
+    <div id="btn2">
+      <button class="askApp" type="submit">Ask for Appointment</button>
+    </div>
+
+    <div class="hosInfo">
+      <img src="/assets/dr kushagra jain.jpg" alt="" />
+      <div class="hosDetail">
+        <h2>Dr. Kushagra Jain</h2>
+        <br />
+        <h3>Specialist - Eye surgeon</h3>
+        <h3>Distance - 7 km</h3>
+        <div id="btn" class="addmore">
+          <i class="fa-sharp fa-solid fa-plus"></i>
+        </div>
+      </div>
+    </div>
+    <div id="btn2">
+      <button class="askApp" type="submit">Ask for Appointment</button>
+    </div>
+
+    <h1 class="topmargin">Doctors you've previously visited...</h1>
+
+    <div class="hosInfo">
+      <img src="/assets/Dr_Ashok-Bajpai-Internal-Medicine.jpg" alt="" />
+      <div class="hosDetail">
+        <h2>Dr. Ashok Bhajpai</h2>
+        <br />
+        <h3>Visited in reference for diabetes</h3>
+        <h3>Dated - 8 feb 2023</h3>
+        <div id="btn" class="addmore">
+          <i class="fa-sharp fa-solid fa-plus"></i>
+        </div>
+      </div>
+    </div>
+    <div id="btn2">
+      <button class="askApp" type="submit">Ask for Appointment</button>
+    </div>
+
+    <div class="hosInfo">
+      <img src="/assets/dr ashutosh singh.jpg" alt="" />
+      <div class="hosDetail">
+        <h2>Dr. Ashutosh Singh</h2>
+        <br />
+        <h3>Visited in reference for Typhoid</h3>
+        <h3>Dated - 16 dec 2022</h3>
+        <div id="btn" class="addmore">
+          <i class="fa-sharp fa-solid fa-plus"></i>
+        </div>
+      </div>
+    </div>
+    <div id="btn2">
+      <button class="askApp" type="submit">Ask for Appointment</button>
+    </div>
+  </div>
+</div>
+
+<uni-loading *ngIf="(paitentProfile$|async) === null"></uni-loading>

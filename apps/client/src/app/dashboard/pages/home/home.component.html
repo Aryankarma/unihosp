@@ -1,0 +1,101 @@
+<div class="content" *ngIf="paitentProfile$ | async as patient">
+  <!-- <div class="content"> -->
+  <div>
+    <div class="userimage" *ngIf="userService$ | async as user">
+      <div class="av_img" *ngIf="user.avatarUrl" style="background-image: url({{user.avatarUrl}});">
+      </div>
+      <div class="av_img" *ngIf="!user.avatarUrl" style="background-image: url('/assets/profile.png');">
+      </div>
+    </div>
+    <h1>Welcome, {{ patient.fName }}</h1>
+    <p class="fontSize">
+      This dashboard is wholeheartedly designed to manage almost everything
+      about you health.
+    </p>
+  </div>
+  <div class="lessmargin">
+    <div class="boxmain b1" *ngIf="lastTwoAppointments$ | async as appointment">
+      <h1>Future Appointments.</h1>
+      <ul class="appointments" *ngIf="appointment.length > 0">
+        <li *ngFor="let appointment of lastTwoAppointments$ | async">
+          <a routerLink="/dashboard/appointments">
+            <div class="apt">
+              <!-- <div class="usr-icon" *ngIf="appointment.userIcon">
+                <img [src]="appointment.userIcon" />
+              </div> -->
+              <div class="dtls">
+                <h3>{{ appointment.doctorId }}</h3>
+                <p>
+                  {{ appointment.location }} ~
+                  {{ appointment.appointmentDate | date : "MMM d" }}
+                </p>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <div class="np" *ngIf="appointment.length === 0">
+        <h3>No, Upcoming Appointments</h3>
+      </div>
+    </div>
+    <div class="boxmain b2">
+      <h1>Tips Related to Current Medical Conditions.</h1>
+      <ul class="tps">
+        <li>Monitor your blood sugar levels regularly</li>
+        <li>Maintain a healthy diet</li>
+        <li>Get regular exercise</li>
+        <li>Take medications as prescribed</li>
+        <li>Manage stress & Stay hydrated</li>
+        <li>Monitor feet</li>
+        <li>Manage stress</li>
+        <li>Get regular check-ups</li>
+      </ul>
+    </div>
+    <div class="boxmain b2" *ngIf="lastTwoAppointments$ | async as appointment">
+      <h1>Profile alert.</h1>
+      <ul class="notification" *ngIf="appointment.length > 0">
+        <li class="ntfy" *ngFor="let appointment of lastTwoAppointments$ | async">
+          <a routerLink="/dashboard/notification">
+            <div class="apt">
+              <span class="arvl">{{ dt | date : 'h:mm a, MMM d' }}</span>
+              <div class="dtls">
+                <h3>{{ appointment.hospitalId }}</h3>
+                <p>
+                  {{ appointment.location }} ~
+                  {{ appointment.appointmentDate| date : "MMM d" }}
+                </p>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <div class="np" *ngIf="appointment.length === 0">
+        <h3>No, Notification</h3>
+      </div>
+    </div>
+    <div class="boxmain b1" *ngIf="lastTwoAppointments$ | async as appointment">
+      <h1>Emergency Notification</h1>
+      <ul class="notification" *ngIf="appointment.length > 0">
+        <li class="ntfy" *ngFor="let appointment of lastTwoAppointments$ | async | slice: -2">
+          <a routerLink="/dashboard/notification">
+            <div class="apt">
+              <span class="arvl">{{ dt | date : 'h:mm a, MMM d' }}</span>
+              <div class="dtls">
+                <h3>{{ appointment.hospitalId }}</h3>
+                <p>
+                  {{ appointment.location }} ~
+                  {{ appointment.appointmentDate| date : "MMM d" }}
+                </p>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <div class="np" *ngIf="appointment.length === 0">
+        <h3>No, Emergency</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<uni-loading *ngIf="(paitentProfile$| async) === null"></uni-loading>
+<!-- <div class="content" *ngIf="paitentProfile$ | async as patient"> -->
